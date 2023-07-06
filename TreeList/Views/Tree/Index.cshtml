@@ -1,0 +1,14 @@
+﻿@model List<TreeList.Models.TreeItem>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.DisplayFor(modelItem => item.NodeData)
+            @if (item.Children.Count > 0)
+            {
+                @Html.Partial("_TreeNode", item.Children)
+            }
+        </li>
+    }
+</ul>
